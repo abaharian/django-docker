@@ -14,10 +14,10 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
 # Application definition
 LOCAL_APPS = [
-    'amirbahador.core.apps.CoreConfig',
-    'amirbahador.common.apps.CommonConfig',
-    'amirbahador.users.apps.UsersConfig',
-    'amirbahador.authentication.apps.AuthenticationConfig',
+    'djangodocker.core.apps.CoreConfig',
+    'djangodocker.common.apps.CommonConfig',
+    'djangodocker.users.apps.UsersConfig',
+    'djangodocker.authentication.apps.AuthenticationConfig',
 ]
 
 THIRD_PARTY_APPS = [
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='psql://user:password@127.0.0.1:5432/amirbahador'),
+    'default': env.db('DATABASE_URL', default='psql://dbuser:dbpassword@987@127.0.0.1:5432/djangodocker'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -89,8 +89,8 @@ if os.environ.get('GITHUB_WORKFLOW'):
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'github_actions',
-            'USER': 'user',
-            'PASSWORD': 'password',
+            'USER': 'dbuser',
+            'PASSWORD': 'dbpassword@987',
             'HOST': '127.0.0.1',
             'PORT': '5432',
         }
@@ -139,8 +139,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    'EXCEPTION_HANDLER': 'amirbahador.api.exception_handlers.drf_default_with_modifications_exception_handler',
-    # 'EXCEPTION_HANDLER': 'amirbahador.api.exception_handlers.hacksoft_proposed_exception_handler',
+    'EXCEPTION_HANDLER': 'djangodocker.api.exception_handlers.drf_default_with_modifications_exception_handler',
+    # 'EXCEPTION_HANDLER': 'djangodocker.api.exception_handlers.hacksoft_proposed_exception_handler',
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     ),

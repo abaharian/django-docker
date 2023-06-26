@@ -1,5 +1,5 @@
 from django.db import models
-from amirbahador.common.models import BaseModel
+from djangodocker.common.models import BaseModel
 
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import BaseUserManager as BUM

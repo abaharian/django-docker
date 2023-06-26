@@ -1,5 +1,5 @@
 """
-ASGI config for amirbahador project.
+ASGI config for djangodocker project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

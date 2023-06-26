@@ -5,10 +5,10 @@ from rest_framework import serializers
 
 from django.core.validators import MinLengthValidator
 from .validators import number_validator, special_char_validator, letter_validator
-from amirbahador.users.models import BaseUser , Profile
-from amirbahador.api.mixins import ApiAuthMixin
-from amirbahador.users.selectors import get_profile
-from amirbahador.users.services import register 
+from djangodocker.users.models import BaseUser , Profile
+from djangodocker.api.mixins import ApiAuthMixin
+from djangodocker.users.selectors import get_profile
+from djangodocker.users.services import register 
 from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
 
 from drf_spectacular.utils import extend_schema

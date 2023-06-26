@@ -3,7 +3,7 @@
 E_NO_POSTGRES_USERNAME=60
 
 POSTGRES_USERNAME="$1"
-DATABASE_NAME="amirbahador"
+DATABASE_NAME="djangodocker"
 
 if [[ -z "$POSTGRES_USERNAME" ]]
 then

@@ -8,9 +8,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_DB=amirbahador
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=djangodocker
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=dbpassword@987
     volumes:
       - postgres-data:/var/lib/postgresql/data/
 

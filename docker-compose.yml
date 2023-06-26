@@ -7,9 +7,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_DB=amirbahador
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=djangodocker
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=dbpassword@987
 
   rabbitmq:
     image: "rabbitmq:alpine"
@@ -27,7 +27,7 @@ services:
     container_name: django
     command: ./docker/web_entrypoint.sh
     environment:
-      - DATABASE_URL=psql://user:password@db:5432/amirbahador
+      - DATABASE_URL=psql://dbuser:dbpassword@987@db:5432/djangodocker
       - CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672//
     volumes:
       - .:/app
@@ -42,11 +42,11 @@ services:
     build:
       context: .
       dockerfile: docker/production.Dockerfile
-    # command: celery -A amirbahador.tasks worker -l info --without-gossip --without-mingle --without-heartbeat
+    # command: celery -A djangodocker.tasks worker -l info --without-gossip --without-mingle --without-heartbeat
     container_name: worker
     command: ./docker/celery_entrypoint.sh
     environment:
-      - DATABASE_URL=psql://user:password@db:5432/amirbahador
+      - DATABASE_URL=psql://dbuser:dbpassword@987@db:5432/djangodocker
       - CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672//
     volumes:
       - .:/app
@@ -59,11 +59,11 @@ services:
     build:
       context: .
       dockerfile: docker/production.Dockerfile
-    # command: celery -A amirbahador.tasks beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    # command: celery -A djangodocker.tasks beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
     container_name: beats
     command: ./docker/beats_entrypoint.sh
     environment:
-      - DATABASE_URL=psql://user:password@db:5432/amirbahador
+      - DATABASE_URL=psql://dbuser:dbpassword@987@db:5432/djangodocker
       - CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672//
     volumes:
       - .:/app

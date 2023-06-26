@@ -1,10 +1,10 @@
-# amirbahador
+# djangodocker
 
 ## project setup
 
 1- compelete cookiecutter workflow (recommendation: leave project_slug empty) and go inside the project
 ```
-cd amirbahador
+cd djangodocker
 ```
 
 2- SetUp venv

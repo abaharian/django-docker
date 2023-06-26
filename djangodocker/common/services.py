@@ -1,6 +1,6 @@
 from typing import List, Dict, Any, Tuple
 
-from amirbahador.common.types import DjangoModelType
+from djangodocker.common.types import DjangoModelType
 
 
 def model_update(
