@@ -17,6 +17,7 @@ LOCAL_APPS = [
     'djangodocker.core.apps.CoreConfig',
     'djangodocker.common.apps.CommonConfig',
     'djangodocker.users.apps.UsersConfig',
+    'djangodocker.blog.apps.BlogConfig',
     'djangodocker.authentication.apps.AuthenticationConfig',
 ]
 
