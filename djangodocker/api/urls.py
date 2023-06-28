@@ -1,5 +1,5 @@
 from django.urls import path, include
 
 urlpatterns = [
-    # path('blog/', include(('djangodocker.blog.urls', 'blog')))
+    path('blog/', include(('djangodocker.blog.urls', 'blog')))
 ]

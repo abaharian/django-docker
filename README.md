@@ -1,4 +1,5 @@
 # djangodocker
+it's a docker-based Django project which uses Onion Achitecture
 
 ## project setup
 
